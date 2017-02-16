@@ -1,4 +1,6 @@
-package com.spring.batch.xml;
+package com.spring.batch;
+
+import org.springframework.stereotype.Component;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
@@ -9,6 +11,8 @@ import java.time.LocalDate;
  * Date: 15/2/17
  * Time: 10:15 PM
  */
+
+@Component("report")
 @XmlRootElement(name = "record")
 public class Report {
 
