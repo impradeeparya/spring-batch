@@ -1,8 +1,11 @@
-package com.spring.batch;
+package com.spring.batch.model;
 
+import com.spring.batch.adapter.DateAdapter;
 import org.springframework.stereotype.Component;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 /**
@@ -12,14 +15,15 @@ import java.time.LocalDate;
  * Time: 10:15 PM
  */
 
-@Component("report")
-@XmlRootElement(name = "record")
-public class Report {
+@Component("employee")
+@XmlRootElement(name = "employee")
+public class Employee {
 
     private String id;
     private String name;
     private LocalDate dateOfJoining;
 
+    @XmlElement(name = "id")
     public String getId() {
         return id;
     }
@@ -28,6 +32,7 @@ public class Report {
         this.id = id;
     }
 
+    @XmlElement(name = "name")
     public String getName() {
         return name;
     }
@@ -36,6 +41,8 @@ public class Report {
         this.name = name;
     }
 
+    @XmlElement(name = "dateOfJoining")
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public LocalDate getDateOfJoining() {
         return dateOfJoining;
     }
@@ -46,7 +53,7 @@ public class Report {
 
     @Override
     public String toString() {
-        return "Report [id : " + id + ", name : " + name + ", dateOfJoining : " + dateOfJoining + "]";
+        return "Employee [id : " + id + ", name : " + name + ", dateOfJoining : " + dateOfJoining + "]";
     }
 
 }

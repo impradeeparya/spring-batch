@@ -1,5 +1,6 @@
-package com.spring.batch;
+package com.spring.batch.processor;
 
+import com.spring.batch.model.Employee;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
@@ -11,9 +12,9 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("itemProcessor")
-public class CsvProcessor implements ItemProcessor<Report, Report> {
+public class CsvProcessor implements ItemProcessor<Employee, Employee> {
 
-    public Report process(Report item) throws Exception {
+    public Employee process(Employee item) throws Exception {
 
         System.out.println("Processing..." + item);
         return item;
